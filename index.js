@@ -57,7 +57,48 @@ const flight = {
 // Proveďte následující:
 
 // Vypište do stránky název startovní a cílové země.
+const fly = document.getElementsByClassName('flight__info');
+
+fly[0].innerHTML +=
+  '<p><span>From</span>: ' +
+  flight.cityFrom +
+  ', ' +
+  flight.cityCodeFrom +
+  '</p>' +
+  '<p><span>To</span>: ' +
+  flight.cityTo +
+  ', ' +
+  flight.cityCodeTo +
+  '</p>';
 // Uložte do separátní proměnné objekt udávající maximální rozměry zavazadel.
 // Z objektu s rozměry zavazadel vytáhněte maximální povolené rozměry příručního zavazadla a vypište tyto rozměry opět jeden po druhém vypište do stránky.
+const bagLimitHand =
+  '<p><span>Hand bag</span>: ' +
+  flight.baglimit.hand_height +
+  ' x ' +
+  flight.baglimit.hand_length +
+  ' x ' +
+  flight.baglimit.hand_width +
+  ', ' +
+  flight.baglimit.hand_weight +
+  ' kg.</p>';
+
+const bagLimitHold =
+  '<p><span>Checked baggage</span>: ' +
+  flight.baglimit.hold_height +
+  ' x ' +
+  flight.baglimit.hold_length +
+  ' x ' +
+  flight.baglimit.hold_width +
+  ', ' +
+  flight.baglimit.hold_weight +
+  ' kg.</p>';
+fly[0].innerHTML += bagLimitHand + bagLimitHold;
+
 // Vypište do stránky, kolik cestující zaplatí za druhé zavazadlo v českých korunách zaokrouhleno nahoru na celé koruny.
+fly[0].innerHTML +=
+  '<p><span>For second bag</span>: ' +
+  Math.ceil(flight.bags_price[2] * 24.6) +
+  ' CZK</p>';
+
 // Pokud máte chuť, malinko stránku nastylujte, aby se uživatel v informacích vyznal.
